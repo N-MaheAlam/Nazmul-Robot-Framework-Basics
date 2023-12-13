@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on darwin)" generated="20231128 17:31:45.237" rpa="false" schemaversion="4">
+<suite id="s1" name="apiTest 01 DictionaryDataType" source="/Users/nazmulmahealam/PycharmProjects/RobotFrameWork/apiTests/apiTest_01_DictionaryDataType.robot">
+<test id="s1-t1" name="Play Aournd With Dictionary" line="5">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{myDetails}</var>
+<arg>name=Nazmul Mahe Alam</arg>
+<arg>age=29</arg>
+<arg>status=Marriage</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231128 17:31:45.269" level="INFO">&amp;{myDetails} = { name=Nazmul Mahe Alam | age=29 | status=Marriage }</msg>
+<status status="PASS" starttime="20231128 17:31:45.268" endtime="20231128 17:31:45.269"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${myDetails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231128 17:31:45.269" level="INFO">{'name': 'Nazmul Mahe Alam', 'age': '29', 'status': 'Marriage'}</msg>
+<status status="PASS" starttime="20231128 17:31:45.269" endtime="20231128 17:31:45.270"/>
+</kw>
+<status status="PASS" starttime="20231128 17:31:45.267" endtime="20231128 17:31:45.270"/>
+</test>
+<status status="PASS" starttime="20231128 17:31:45.242" endtime="20231128 17:31:45.270"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="apiTest 01 DictionaryDataType">apiTest 01 DictionaryDataType</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
