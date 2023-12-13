@@ -1,0 +1,413 @@
+
+
+
+
+						LECTURE 06 - Install Python in MAC
+						
+						
+						
+	=>	
+	1)	First go to "https://www.python.org/downloads/" to install python in 
+		your system.
+		
+		check the version that which one is installed (in MAC) by 
+		in terminal 
+		
+		command --- 
+						which python3
+		
+		=>	It will show the version of python
+		
+	2)	Now install robotframework in python
+	
+		command - 
+						pip3 install robotframework
+	
+	 ( pip3 is used for python 3 in command it could be changed in future 
+	  so always check it in website)
+	
+	3)	upgrade the pip if you want by below command
+	
+		command - 
+					pip3 install --upgrade pip
+					
+					
+	
+	4)	Now, install selenium library to use in robotframework
+	
+		command - 
+					pip3 install robotframework-seleniumlibrary
+	
+	
+	5)	You can also update the selenium library in robotframework
+	
+		command - 
+					pip install --upgrade robotframework-seleniumlibrary
+					
+	6)	Now install pycharm From pycharm website the free version one for student
+		
+		-	Open a new Project
+		-	Select the "Base interpreter"  as "usr/local/bin/python3.12"				
+		
+	
+	"usr/local/bin/pythonAnyVersion", Right now I have python3.12 so my 
+	base interpreter path is  --- "usr/local/bin/python3.12"
+	
+	
+	7)	Now, from pycharm open "setting" search for "interpreter" you will 
+		see "projectNameThatYouHave" and then on the right window you will see
+		select the "add interpreter" then from  "system environment" select the
+		python from system and it will auto upload all the jars like the 
+		"robot framework" & Selenium jars that we have installed from our 
+		terminal in our python by following rule 2) & 4)
+		
+		
+	8)	Now, from settings  of pycharm, go to plugins
+		download the "Hyper RobotFrameworok Support" which will highlight all the 
+		RobotFrameWorks syntaxes.  
+	
+	
+	
+					
+						LECTURE - 08 - Robot test creation
+						
+	
+	
+	=>	Now in our project "RobotFrameWork" create a new folder( directory )
+		with name "tests". Then inside the folder, create a new file
+		"testDemo.robot". Make sure you provide the extension ".robot" by
+		which it will recognise this file as a robot frame work file.
+		
+		1)	Make sure the chrome driver version is same as the chrome broswer.
+			change the chrome driver in "/usr/local/bin
+			
+			from terminal use this below command
+			
+			command - open /usr/local/bin
+			
+			Once the folder open, copy the chrome driver and paste it here
+			
+			
+		2)	Now, in "testDemo.robot" put the below commands 
+		
+		------------------------------
+		
+*** Settings ***
+Documentation    To validate the login form
+Library    SeleniumLibrary
+
+#Resource - we will define it in later lectures
+
+*** Test Cases ***
+Validate Unsuccessful Login
+    open the browser with the mortage payment url
+    File the login form
+    Wait until it checks and display error message
+    Verify error message is correct
+
+*** Keywords ***
+open the browser with the mortage payment url
+    Create Webdriver    Chrome
+    Go To    https://rahulshettyacademy.com/loginpagePractise/#
+
+File the login form
+    Input Text    id:username    nazmulmahealam
+    Input Text    id:password    123456
+    Click Button    signInBtn
+
+Wait until it checks and display error message
+    Wait Until Element Is Visible    css:.alert-danger
+
+Verify error message is correct
+    ${errorMessage}=    Get Text    css:.alert-danger
+    Should Be Equal As Strings   ${errorMessage}     Incorrect username/password.
+		
+	
+	------------------------------------------
+ 	4) In robot framework there is no code just test
+ 	
+ 	
+ 	"Settings" =>	In "Settings" We provide information about the documentation
+ 					of the test.
+ 					
+ 				1)	"Library" such as "SeleniumLibrary" I am going to use. I need to
+ 					declare it. There can be more Library which I will use through out
+ 					the project.
+ 					
+ 	
+ 				2)	"Test Setup" where I can provide what are things I should do before
+ 					test starts, such as browser open, clear cookies, clear sessions etc.
+	
+				3)	"Test Teardown" Here we will provide information about what are
+					things should be done to close the test such as close the browser.
+					
+				4)	"Resource" this is one of the most important think where we will
+					declare what kind of resource file we are going to use.
+					
+					if you go to "reource.robot file in "RobotFrameWork" project
+					you will see we declare a resource file "resource.robot"
+					
+					Where, 
+					It is same as the tests files except no test cases.
+					It has also the "Settings", "Variables", "Keywords"
+					
+					This Variables we can use through out our test project and also
+					the Keywords which act as a method but we declare. Go to the 
+					"resource.robot" and "testResourceFile_ArgumentsUsing01.robot"
+					file you will see that
+					
+					we have use the resource file variables and also the keywords
+					in our test.
+					To declare a variable in Resource file
+					
+					${VariableName}	TAB	variableValue
+					
+	"Test Cases"	Here we declare the test cases and there actions which will be 
+					implemented in "Keywords"
+					
+				
+				1)	Test case name always starts at first without any space and 
+					its machanisim is written after the test case name with a 
+					TAB such as belo
+					
+TestCase 01
+	Open the browser #(steps_ this is just to show , not a code)
+	Go to the URL		#(steps2)
+				
+	
+	
+	
+	"Keywords"		Here we will implement the 	 steps of test cases. such as
+	
+Open the browser
+
+
+
+						LECTURE -22 (report.html)
+						
+						
+						
+	=>	If you go through each and every lecture test codes in Pycharm, Robot
+		Framework, You will understand everything.					
+	
+	=>	report has everything, IN you test robot project when you run, you will see
+		an "report.html". Open that file in your browser. Then you will can observe
+		everything in details.
+		
+						
+						LECTURE - 23 Screenshot
+	
+	=>	Robot Framework automatically creates screenshots when you have a failure.
+		You can open the "log.html" file in your browser and you can identify exactly
+		where the test got fail as well as attached screen shot keyword which will
+		come as a built in system.
+		
+			
+						LECTURE - 24 Data Driving (Must Watch)
+	
+	=>	To use the data from csv file or excel file we need to install a library
+		in our robot specific project.
+		
+		Pycharm -> Settings - MyProject Name -> Python Interpreter ->  click on
+		"+" sign and install "robotframework-datadriver
+		
+		If it is not giving the permission then from terminal run the below command
+		
+		--- pip3 install --upgrade robotframework-datadriver
+		
+		
+		
+		
+						LECTURE - 27- Custom Library
+	
+	=> 	Suppose in our robot framework, we use Selenium library from where we 
+		appoint selenium custom words such as "Click Button", "Input Text".
+		So, We can also create our own library and inside library our own custom
+		keywords and use them in our tests.
+		
+					
+	1)	Create a separate folder in your project
+	
+	2)	Create a new python file (FileName.py) in that particular folder
+			
+					
+					LECTURE - 33- Test Execution
+					
+	When we want to run all the test files in a folder what we can give in command 
+	line that
+	
+	-command -- "robot testFoldername ."
+	it will trigger all the test of that folder but in a sequence 
+	
+	To execute tests in parallel we need to install a plugin call "pabot"
+	
+	"""""pip3 install -U	robotframework-pabot""""""""
+	
+	
+	Now from terminal of Pycharm robot
+	 provide the below command
+	 
+	 " pabot testFolderName . "	
+	 
+	 
+	 					
+	 					LECTURE 35 - Different ways to run tests
+	 
+	1)	Run all the test in a folder in a sequence
+	 
+	 		----- robot testFolderName . -----
+	 		
+	2)	Execute specific test file/
+	
+			---- robot testFolder/testName.robot -----	
+			
+	3)	We can put tags in Any test Case then give it as a name then can run it 
+	
+		Let me show you the code 
+		
+		============================
+		*** Test Cases ***
+Validate Successful Login and Product Titiles Are Displayed
+    
+    
+    [Tags]    SMOKE    Regression
+
+    File The Login Form    ${user_name}    ${valid_Password}
+    
+    Wait Until The Product Tiles Is Shown    ${card_titiles}
+    
+    Verify Card Titiles With Expected List
+    
+    Make Sure the products are added and Checkout Button clicked
+		============================
+		
+Now From Terminal Call this 
+
+	================================
+	
+	code = robot --include SMOKE .
+	==============================			
+This (.) will scan the whole project and will run only the tests will which will have
+tags "SMOKE"
+
+	
+	=>	We can provide multiple tag names to  test case such as 
+					
+		"SMOKE", "REGRESSION", "SANITY" 			
+		we will just call them when ever we will need this.
+					
+
+	4)	When I want to run  Tests for different tag names such I want to run 
+		Smoke test and Regression Test
+		
+		Just call the below code
+		
+	===============
+	
+	code = robot --include SMOKEORREGRESSION .
+	
+	===============
+	there is an "OR" between smoke and regression. It will run smoke first then
+	the regression"
+	
+						
+	5)	We we want to run a tests which has both name such as I want to run the 
+		tests which has both tag name "Nazmul" & "Mahe".
+		It will run only the tests but some tests can have either "Nazmul" or 
+		"Some" May be "Mahe". It is not going to pick these test cases. It will
+		Only pick that has both names 				
+	
+	=====================
+	
+	code = robot --include NazmulANDMahe .
+	=====================
+	(.) scans in whole  project.
+	
+	
+	6)	 I want to run some test cases but not a specific test cases which  has a 
+		common name such as I don't want to run "integration" test cases from 
+		a testfile
+		
+		==================
+		code = robot --exclude integrationTestCases fileName.robot
+		==================
+		#This will run all the test from fileName.robot except the "integrationTest
+		Cases"
+		
+		==================
+		code = robot --exclude integrationTestCases .
+		===============
+		
+		#It will run all the test cases from the project except the integrationTest
+		Cases
+		
+		
+	7)	If you want to run a specific folder of a project. Just come out from any
+	 where, go to the Project path from pycharm terminal and write the below code
+	 
+	 
+	 =================
+	 code = robot --suite folderName .
+	 =================
+	 It will run the all the tests 
+	 
+	 
+	8)	How to set variables on terminal in robot framework.
+	
+		Such as , every time I want to change the browser from my command line
+		but nor from my code. Suppose , My code in now is running on Chrome
+		But I want to run in FireFox but don't want to change my my code.
+		So, I can run this form my command line. Let's say, The variable name for 
+		browser in "${browser_name} set in my tests.
+		So, I will change the browser name like below way
+		
+	====================
+		
+	code = robot --variable browser_name:FireFox tests/demotest.robot
+	====================
+	It will change the value of ${browser_name} into "FireFox" no matter what is the 
+	value in the code. (If it is "Chrome" in code, it will be 'FireFox" while running
+	but will not the change code but will run on FireFox value.
+	
+	
+	
+	9) There can be multiple flyirs together such as 
+	
+	
+	===========
+	code = robot --variable browser_name:FireFox --include RegressionANDSmoke testdemo.robot
+	
+	=========
+	
+	#This code is changing the variable into fir fox and running only the test cases
+	which have both tag "regesssion" AND "Smoke" from "testdemo.robot file
+	
+	
+	
+							
+							LECTURe 41-
+							
+		
+		Install the http request library in our framework.
+		
+		command from terminal 
+		
+		===================
+		pip3 install robotframework-requests
+		===================
+		
+		or go to the project
+		
+		settings-> python interpreter -> click (+) plus incon- search for httprequests
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
