@@ -1,73 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.0 on darwin)" generated="20231210 19:45:50.903" rpa="false" schemaversion="4">
-<suite id="s1" name="test 01 Demo" source="/Users/nazmulmahealam/PycharmProjects/RobotFrameWorkBasics/tests/test_01_Demo.robot">
-<test id="s1-t1" name="Validate Unsuccessful Login" line="8">
-<kw name="Open The Browser With The Mortage Payment Url">
+<robot generator="Robot 6.1.1 (Python 3.12.0 on darwin)" generated="20231215 12:02:41.647" rpa="false" schemaversion="4">
+<suite id="s1" name="test 12 FileUpload" source="/Users/nazmulmahealam/PycharmProjects/Nazmul-Robot-Framework-Basics/tests/test_12_FileUpload.robot">
+<test id="s1-t1" name="Upload File In I Lobve PDF WebSite" line="17">
+<kw name="Open The Browser To Go I Love PDF URL">
 <kw name="Create Webdriver" library="SeleniumLibrary">
-<arg>Chrome</arg>
+<arg>${ChromeBrowser}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20231210 19:45:51.159" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20231210 19:45:51.159" endtime="20231210 19:45:53.656"/>
+<msg timestamp="20231215 12:02:41.993" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20231215 12:02:41.993" endtime="20231215 12:02:44.199"/>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>https://rahulshettyacademy.com/loginpagePractise/#</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231210 19:45:53.657" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/#'</msg>
-<status status="PASS" starttime="20231210 19:45:53.657" endtime="20231210 19:45:55.123"/>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${ChromeBrowser}</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231215 12:02:44.202" level="INFO">Opening browser 'Chrome' to base url 'https://www.ilovepdf.com/split_pdf'.</msg>
+<status status="PASS" starttime="20231215 12:02:44.200" endtime="20231215 12:03:08.443"/>
 </kw>
-<status status="PASS" starttime="20231210 19:45:51.158" endtime="20231210 19:45:55.123"/>
+<status status="PASS" starttime="20231215 12:02:41.992" endtime="20231215 12:03:08.443"/>
 </kw>
-<kw name="File The Login Form">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:username</arg>
-<arg>nazmulmahealam</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231210 19:45:55.129" level="INFO">Typing text 'nazmulmahealam' into text field 'id:username'.</msg>
-<status status="PASS" starttime="20231210 19:45:55.126" endtime="20231210 19:45:55.406"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:password</arg>
-<arg>123456</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231210 19:45:55.406" level="INFO">Typing text '123456' into text field 'id:password'.</msg>
-<status status="PASS" starttime="20231210 19:45:55.406" endtime="20231210 19:45:55.488"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>signInBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231210 19:45:55.489" level="INFO">Clicking button 'signInBtn'.</msg>
-<status status="PASS" starttime="20231210 19:45:55.489" endtime="20231210 19:45:55.563"/>
-</kw>
-<status status="PASS" starttime="20231210 19:45:55.124" endtime="20231210 19:45:55.563"/>
-</kw>
-<kw name="Wait Until It Checks And Display Error Message">
+<kw name="Click on Select PDF Button">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>css:.alert-danger</arg>
+<arg>${fileUploadLocator}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231210 19:45:55.563" endtime="20231210 19:45:57.638"/>
+<status status="PASS" starttime="20231215 12:03:08.444" endtime="20231215 12:03:08.477"/>
 </kw>
-<status status="PASS" starttime="20231210 19:45:55.563" endtime="20231210 19:45:57.638"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${fileUploadLocator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231215 12:03:08.478" level="INFO">Clicking element 'xpath://a[@id='pickfiles']'.</msg>
+<status status="PASS" starttime="20231215 12:03:08.477" endtime="20231215 12:03:09.633"/>
 </kw>
-<kw name="Verify Error Message Is Correct">
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${errorMessage}</var>
-<arg>css:.alert-danger</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231210 19:45:57.659" level="INFO">${errorMessage} = Incorrect username/password.</msg>
-<status status="PASS" starttime="20231210 19:45:57.638" endtime="20231210 19:45:57.659"/>
+<kw name="Choose File" library="SeleniumLibrary">
+<arg>${fileUploadLocator}</arg>
+<arg>${file_path}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<msg timestamp="20231215 12:03:09.635" level="INFO">Sending /Users/nazmulmahealam/Desktop/Nazmul Resume for Jobs/uploadThisFile.pdf to browser.</msg>
+<status status="PASS" starttime="20231215 12:03:09.633" endtime="20231215 12:03:09.837"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${errorMessage}</arg>
-<arg>Incorrect username/password.</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20231210 19:45:57.659" endtime="20231210 19:45:57.660"/>
+<status status="PASS" starttime="20231215 12:03:08.444" endtime="20231215 12:03:09.838"/>
 </kw>
-<status status="PASS" starttime="20231210 19:45:57.638" endtime="20231210 19:45:57.660"/>
-</kw>
-<status status="PASS" starttime="20231210 19:45:51.158" endtime="20231210 19:45:57.661"/>
+<status status="PASS" starttime="20231215 12:02:41.992" endtime="20231215 12:03:09.838"/>
 </test>
 <doc>To validate the login form</doc>
-<status status="PASS" starttime="20231210 19:45:50.905" endtime="20231210 19:45:57.664"/>
+<status status="PASS" starttime="20231215 12:02:41.652" endtime="20231215 12:03:09.839"/>
 </suite>
 <statistics>
 <total>
@@ -76,7 +52,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="test 01 Demo">test 01 Demo</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="test 12 FileUpload">test 12 FileUpload</stat>
 </suite>
 </statistics>
 <errors>
