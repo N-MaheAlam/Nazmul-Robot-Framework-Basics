@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    To Upload files. Using file from loacal system. You can change the file path
-.Library    SeleniumLibrary
+Library    SeleniumLibrary
 Library    Collections
 Library    OperatingSystem
 #This has come from resource.robot file
