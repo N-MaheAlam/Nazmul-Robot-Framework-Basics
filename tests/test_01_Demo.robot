@@ -28,3 +28,5 @@ Verify Error Message Is Correct
     #Decalring variables
     ${errorMessage}=    Get Text    css:.alert-danger
     Should Be Equal As Strings   ${errorMessage}     Incorrect username/password.
+
+# Comment to check continous integration
