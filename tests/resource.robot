@@ -16,7 +16,7 @@ ${ChromeBrowser}            Chrome
 *** Keywords ***
 Open The Browser With The Rahul Shetty Url
     Create Webdriver    Chrome
-    # The "options" aruguments keep the browser open beacuse before using that one. It got closed
+    # The "options" arguments keep the browser open because before using that one. It got closed
     #Automatically
     Open Browser    ${base_url}    ${ChromeBrowser}    options=add_experimental_option("detach", True)
     Maximize Browser Window

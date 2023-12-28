@@ -11,7 +11,6 @@ Test Setup    Open The Browser With The Rahul Shetty Url
 #this is resource file which will be used throughout the test
 Resource    resource.robot
 
-#Resource - we will define it in later lectures
 
 *** Variables ***
 ${Login_Error_Mesage_Css}=    css:.alert-danger

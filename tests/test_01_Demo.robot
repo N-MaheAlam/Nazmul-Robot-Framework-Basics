@@ -6,13 +6,13 @@ Library    SeleniumLibrary
 
 *** Test Cases ***
 Validate Unsuccessful Login
-    Open The Browser With The Mortage Payment Url
+    Open The Browser With The Mortgage Payment Url
     File The Login Form
     Wait Until It Checks And Display Error Message
     Verify Error Message Is Correct
 
 *** Keywords ***
-Open The Browser With The Mortage Payment Url
+Open The Browser With The Mortgage Payment Url
     Create Webdriver    Chrome
     Go To    https://rahulshettyacademy.com/loginpagePractise/#
 

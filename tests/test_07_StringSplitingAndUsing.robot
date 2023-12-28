@@ -35,11 +35,11 @@ Grap The Email From Child Window By Spliting
     #split the text in sapce and store the strings in a list
     @{splitEmailString}=    Split String     ${emailText}
     #get the first index(0) from the list
+
     ${originalEmail}=    Get From List    ${splitEmailString}    0
     #print it in the log
     Log    ${originalEmail}
-
-    #This variable can be use thorugh this whole Keywords
+    #This variable can be use thorugh all the Keywords
     Set Global Variable   ${originalEmail}
 
 Place The Email To The Parent Window

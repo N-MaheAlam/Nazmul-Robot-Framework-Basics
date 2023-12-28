@@ -11,7 +11,7 @@ Resource    resource.robot
 #Resource - we will define it in later lectures
 
 *** Variables ***
-${Login_Error_Mesage_Css}=    css:.alert-danger
+${Login_Error_Message_Css}=    css:.alert-danger
 
 *** Test Cases ***
 Validate Unsuccessful Login
@@ -30,10 +30,10 @@ File The Login Form
     Click Button    signInBtn
 
 Wait Until It Checks And Display Error Message
-    Wait Until Element Is Visible    ${Login_Error_Mesage_Css}
+    Wait Until Element Is Visible    ${Login_Error_Message_Css}
 
 Verify Error Message Is Correct
     ${errorMessage}=    Get Text    css:.alert-danger
     Should Be Equal As Strings   ${errorMessage}     Incorrect username/password.
     #Below code is giving the same comparison but in selenium framework
-    Element Text Should Be    ${Login_Error_Mesage_Css}    Incorrect username/password.
+    Element Text Should Be    ${Login_Error_Message_Css}    Incorrect username/password.
